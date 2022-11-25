@@ -1,0 +1,19 @@
+
+<div class="container">
+    <div class="container-wrapper">
+        <h3 class="login-text"><i class="bi bi-person-circle ac-logo"></i>Kayıt Ol</h3>
+        <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+            <div>
+                <div class="item"><input class="input" type="text" placeholder="E-Mail" formControlName="email"></div> 
+                <div class="item"><input class="input" type="password" placeholder="Şifre" formControlName="password"> </div>
+                <span class="remember"> <a href="#" routerLink="/forgot-password">Şifremi Unuttum?</a> </span>
+                <div class="item submit"><button  style="border: 5px solid green" *ngIf="signUpForm.valid">Kayıt Ol</button></div>
+                <div class="item submit"><button  style="border: 5px solid red" [disabled]="!signUpForm.valid" *ngIf="!signUpForm.valid">Kayıt Ol</button></div>
+            </div>
+        </form>
+        <span class="ac">Bir hesaba sahipmisin? <a href="#" routerLink="/login">Giriş Yap</a></span>
+    </div>
+
+</div>
+
+

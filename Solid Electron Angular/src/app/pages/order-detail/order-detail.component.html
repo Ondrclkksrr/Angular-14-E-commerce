@@ -1,0 +1,27 @@
+
+<div class="container">
+    <br>
+    <div *ngFor="let order of order$" >
+    <div *ngIf="order.orderid==orderId">
+    <h1>Alışveriş Bilgisi</h1>
+    <h3>Alışveriş Tarihi : {{order.orderDate | date}}</h3>
+    <h3>Alışveriş Tutarı : {{order.orderPrice}} TL</h3>
+    <h3>Ürün Sayısı: {{order.products.length}} Adet</h3>
+	<div class="cart">
+        <br>
+        <h1>ÜRÜNLER</h1>
+		<div class="products" *ngFor="let product of order.products">
+			<div class="product">
+                <img src="{{product.photoUrl}}">
+				<div class="product-info">
+					<h3 class="product-name">{{product.productname}}</h3>
+					<h4 class="product-price" >{{product.price}} Türk Lirası</h4>
+					<h4 class="product-offer">50%</h4>
+				</div>
+			
+			</div>
+		</div>
+    </div>
+    <br>
+</div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+
+	<h1>Hesabım</h1>
+    <img class="user" *ngIf="user.photoUrl !== null" src="{{user.photoUrl}}">
+    <img class="user"  *ngIf="user.photoUrl == null" src="../../../assets/user.png">
+    <h3 class="product-price" >{{user.email}} </h3>
+    <button class="logoutButton" (click)="logout()">ÇIKIŞ YAP</button>
+
+    <h1>Alışverişlerim</h1>
+	<div *ngIf="(allOrders$|async|orderFilter: this.user.id).length">
+	<div class="cart"*ngFor="let order of allOrders$|async | orderFilter:this.user.id" >
+
+		<div class="products">
+			<div class="product">
+				<div class="product-info">
+					<h3 class="product-name">ALIŞVERİŞ BİLGİLERİ</h3>
+
+					<h4 class="product-price" >TARİH : {{order.orderDate | date}} </h4>
+
+					<h4 class="product-offer">ÜRÜN SAYISI : {{order.products.length}} ADET</h4>
+                    <h4 class="product-offer">TUTAR : {{order.orderPrice}} Türk Lirası</h4>
+					
+					<p class="product-remove" routerLink="/order-detail/{{order.orderid}}">
+
+						<i class="fa fa-trash" aria-hidden="true"></i>
+
+						<span class="remove" >İNCELE</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="empty-cart" *ngIf="!(allOrders$|async|basketfilter:this.user.id).length">
+		<h3 >Henüz gerçekleşmiş bir alışverişiniz yok.Mağazaya giderek harika şekerlemeler satın alabilirsiniz.</h3>
+		<button routerLink="/shop">Mağazaya Git</button>
+	</div>	
+<br>
+</div>

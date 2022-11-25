@@ -1,0 +1,31 @@
+
+<div class="container">
+    <div class="container-wrapper">
+        <h3 class="login-text"><i class="bi bi-person-circle ac-logo"></i>Giriş Yap</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="signIn()">
+            <div>
+                <div class="item"><input class="input" type="text" placeholder="E-mail" formControlName="email"></div>
+                <div class="item">
+                    <input class="input" type="password" placeholder="Şifre" formControlName="password">
+                </div>
+                <span class="remember">
+                    <a href="#" routerLink="/forgot-password">Şifrenimi Unuttum?</a> 
+                </span>
+                <div class="item submit">
+                    <button style="border: 5px solid red" [disabled]="!loginForm.valid" *ngIf="!loginForm.valid">GİRİŞ YAP</button>
+                    <button style="border: 5px solid green" *ngIf="loginForm.valid" >GİRİŞ YAP</button>
+                </div>    
+            </div>
+        </form>
+        <br>
+        <h2><span>SOSYAL</span></h2>
+        <div class="social-media">
+            <div class="item submit">
+                <button type="submit" (click)="signInWithGoogle()" [disabled]="authLoading|async">
+                    <i class="icons8-google social-mediaImg"></i>
+                </button>
+            </div>   
+        </div>
+        <span class="ac">Mevcut bir hesabın yokmu? <a href="#" routerLink="/signup">Kayıt ol</a></span>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+
+<div class="search-box">
+    <div class="fa fa-search"></div>
+    <input class="search" type="text" placeholder="Arama" [(ngModel)]="filterText"/>
+    <div class="fa fa-times"></div>
+</div>
+
+<div class="selector">
+    <div class="selecotr-item">
+        <input type="radio" id="radio1" value="" class="selector-item_radio"  checked [(ngModel)]="categoryText" (change)="onCategorySelected()">
+        <label for="radio1" class="selector-item_label">Tümü</label>
+    </div>
+    <div class="selecotr-item">
+        <input type="radio" id="radio2" value="Marshmallow" class="selector-item_radio" [(ngModel)]="categoryText" (change)="onCategorySelected()">
+        <label for="radio2" class="selector-item_label">Marshmallow</label>
+    </div>
+    <div class="selecotr-item">
+        <input type="radio" id="radio3" value="Candy" class="selector-item_radio" [(ngModel)]="categoryText" (change)="onCategorySelected()">
+        <label for="radio3" class="selector-item_label">Şeker</label>
+    </div>
+</div>
+
+ <div class="container">
+    <div class="product_box" *ngFor="let products of allProducts$|async | filter:filterText:categoryText ">
+      <img src="{{products.photoUrl}}">
+      <h2>{{products.name}}</h2>
+      <p></p>
+      <span>{{products.price}} Türk Lirası</span>
+      <div clas="rate">
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+        <i class="filled fas fa-star"></i>
+      </div>
+      <div class="options">
+        <a href="#" routerLink="/prod/{{products.id}}" >İncele</a>
+        <a  (click)="addBasket(this.user.id,products.id,products.name,products.desc,products.price,products.photoUrl,1)">Sepete Ekle</a>
+      </div>
+    </div>
+ </div>
+ 

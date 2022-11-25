@@ -1,0 +1,51 @@
+<main *ngFor="let product of products$">
+<div class="container" *ngIf="product.id == productId">
+    <div class="box">
+        <div class="images">
+            <div class="img-holder active">
+                <img src="{{product.photoUrl}}">
+            </div>
+            <div class="img-holder">
+                <img src="{{product.photoUrl}}">
+            </div>
+            <div class="img-holder">
+                <img src="{{product.photoUrl}}">
+            </div>
+            <div class="img-holder">
+                <img src="{{product.photoUrl}}">
+            </div>
+        </div>
+        <div class="basic-info">
+            <h1>{{product.name}}</h1>
+            <div class="rate">
+                <i class="filled fas da-star">Yıldızlar var fakat fa icons çalışmıyor</i>
+                <i class="filled fas da-star"></i>
+                <i class="filled fas da-star"></i>
+                <i class="filled fas da-star"></i>
+                <i class="filled fas da-star"></i>
+            </div>
+            <span>{{product.price}} Türk Lirası</span>
+            <div class="options">
+                <a href="" routerLink="/shop">Geri Dön</a>
+                <a (click)="addBasket(this.user.id,product.id,product.name,product.desc,product.price,product.photoUrl,1)">Sepete Ekle</a>
+            </div>
+        </div>
+        <div class="description">
+            <p>{{product.desc}}</p>
+            <ul>
+                <li><i class="fa-solid fa-circle-check"></i>Özellik 1</li>
+                <li><i class="fa-solid fa-circle-check"></i>Özellik 1</li>
+                <li><i class="fa-solid fa-circle-check"></i>Özellik 1</li>
+                <li><i class="fa-solid fa-circle-xmark"></i>Özellik 1</li>
+                <li><i class="fa-solid fa-circle-xmark"></i>Özellik 1</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</main>
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "solidelectron-7be33": {
+      "hosting": {
+        "AngularProject": [
+          "solidelectron-7be33"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "solidelectron-7be33"
+  }
+}
